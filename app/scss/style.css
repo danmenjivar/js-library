@@ -17,4 +17,34 @@ body {
   background-color: #202020;
   color: #fff;
 }
+
+.library-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.card {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #2994ab;
+  color: white;
+  height: 180px;
+  width: 300px;
+  margin: 10px;
+}
+
+.card * {
+  margin: 12px;
+}
 /*# sourceMappingURL=style.css.map */
