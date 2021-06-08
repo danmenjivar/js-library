@@ -22,17 +22,24 @@ class Book {
 
 }
 // TODO
-// - Manually create some books & add them to the array
 // - Code a CSS card
 //  - write displayBooks()
 //      - loops through array and displays each book in a table, each in card
+// X Manually create some books & add them to the array
 
-
-// Takes user input and stores new book object into an array
-function addBookToLibrary() {
-
+function addBookToLibrary(title, author, pagesCount, readCondition) {
+    myLibrary.push(new Book(title, author, pagesCount, readCondition));
 }
 
 function displayBooks() {
+    myLibrary.forEach(book => {
+        console.log({ book });
 
+    });
 }
+
+
+addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true)
+addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, true)
+addBookToLibrary("Don Quixote", "Miguel de Cervantes", 1072, false)
+addBookToLibrary("The Lord of the Rings", "J.R.R. Tolkien", 1178, false)
