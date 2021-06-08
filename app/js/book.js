@@ -1,4 +1,4 @@
-let myLibrary = [];
+let myLibrary = []; // stores books
 
 // Book Object Constructor
 class Book {
@@ -21,6 +21,12 @@ class Book {
 
 
 }
+// TODO
+// - Manually create some books & add them to the array
+// - Code a CSS card
+//  - write displayBooks()
+//      - loops through array and displays each book in a table, each in card
+
 
 // Takes user input and stores new book object into an array
 function addBookToLibrary() {
