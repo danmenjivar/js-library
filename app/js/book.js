@@ -3,6 +3,7 @@
 //  - make so each one gets a unique color
 //  - style fonts (size & family)
 // * Add a button to each book to remove it from library
+//  - add a "are you sure?" prompt
 // * Add a read status switch to each book
 // * Integrate local storage
 // * Integrate firebase
