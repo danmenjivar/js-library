@@ -1,5 +1,6 @@
 // TODO
 // * Add a read status switch to each book
+// - allow to quit by hitting foreground
 // - Add a footer to mark the storing options
 //  - include a button that adds the hardcoded books as a "demo"
 // * Integrate local storage
@@ -90,8 +91,21 @@ document.querySelector("#remove-quit-btn").addEventListener("click", () => {
     removeBookPopUp.style.display = "none";
 });
 
+// Event Listeners for changing read status
+function handleReadStatus(e) {
+    console.log(e.target.parentElement.parentElement.parentElement.getAttribute("data-index"));
+    let cardIndex = (e.target.parentElement.parentElement.parentElement).getAttribute("data-index");
+    toggleReadStatus(cardIndex);
 
-// 
+}
+
+function toggleReadStatus(index) {
+    console.log(`Before, read = ${myLibrary[index].read}`);
+    myLibrary[index].read = !myLibrary[index].read;
+    console.log(`After, read = ${myLibrary[index].read}`);
+}
+
+
 function displayBooks() {
     let libraryContainer = document.querySelector(".library-container");
     libraryContainer.innerHTML = "";
@@ -113,10 +127,23 @@ function displayBooks() {
 
         card_header.appendChild(remove_icon);
 
-        let read = document.createElement("p");
-        read.classList.add("title");
-        read.textContent = (book.read) ? "Read" : "Not Read";
+        let read = document.createElement("label");
+        read.classList.add("switch");
+        let checkbox = document.createElement("input");
+        checkbox.setAttribute("type", "checkbox");
+        checkbox.checked = book.read;
+        read.appendChild(checkbox);
+        checkbox.addEventListener("click", (e) => handleReadStatus(e));
+        let slider = document.createElement("span");
+        slider.classList.add("slider", "round");
+        read.appendChild(slider);
         card_header.appendChild(read);
+
+        // old read 
+        // let read = document.createElement("p");
+        // read.classList.add("title");
+        // read.textContent = (book.read) ? "Read" : "Not Read";
+        // card_header.appendChild(read);
 
         card.appendChild(card_header);
 
