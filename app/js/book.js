@@ -1,5 +1,7 @@
 // TODO
 // * Add a read status switch to each book
+// - Add a footer to mark the storing options
+//  - include a button that adds the hardcoded books as a "demo"
 // * Integrate local storage
 // * Integrate firebase
 // x Add New Book button
@@ -11,6 +13,36 @@
 
 
 let myLibrary = []; // stores books
+
+// Functions operating directly on library
+function addBookToLibrary(title, author, pagesCount, readCondition) {
+    myLibrary.push(new Book(title, author, pagesCount, readCondition));
+}
+
+function removeBookFromLibrary(indexToDelete) {
+    console.log(`Before delete ${myLibrary}`)
+    myLibrary.splice(indexToDelete, 1);
+    console.log(`After delete ${myLibrary}`)
+}
+
+// Book Object Constructor
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
+
+    info() {
+        return `${this.title} by ${this.author}, ${this.pages} pages, ${(this.read) ? "has been read" : "not read yet"}`
+
+    }
+
+    toggleReadStatus() {
+        this.read = !this.read;
+    }
+}
 
 // EventListeners for Adding Books
 let addBookPopUpForm = document.querySelector("#add-overlay");
@@ -58,38 +90,8 @@ document.querySelector("#remove-quit-btn").addEventListener("click", () => {
     removeBookPopUp.style.display = "none";
 });
 
-// Book Object Constructor
-class Book {
-    constructor(title, author, pages, read) {
-        this.title = title;
-        this.author = author;
-        this.pages = pages;
-        this.read = read;
-    }
 
-    info() {
-        return `${this.title} by ${this.author}, ${this.pages} pages, ${(this.read) ? "has been read" : "not read yet"}`
-
-    }
-
-    toggleReadStatus() {
-        this.read = !this.read;
-    }
-}
-
-
-function addBookToLibrary(title, author, pagesCount, readCondition) {
-    myLibrary.push(new Book(title, author, pagesCount, readCondition));
-}
-
-function removeBookFromLibrary(indexToDelete) {
-    console.log(`Before delete ${myLibrary}`)
-    myLibrary.splice(indexToDelete, 1);
-    console.log(`After delete ${myLibrary}`)
-}
-
-
-
+// 
 function displayBooks() {
     let libraryContainer = document.querySelector(".library-container");
     libraryContainer.innerHTML = "";
@@ -141,7 +143,7 @@ function backgroundColorPicker(index) {
 }
 
 
-// temp hard core demo really
+// hard coded demo
 function demo() {
     addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
     addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, true);
