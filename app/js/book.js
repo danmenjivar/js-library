@@ -21,6 +21,17 @@ document.querySelector("#quit-button").addEventListener("click", () => {
     addBookPopUpForm.style.display = "none";
 });
 
+document.querySelector("#new-book-form").addEventListener("submit", (e) => {
+    e.preventDefault();
+    let formData = new FormData(document.querySelector("#new-book-form"));
+    addBookToLibrary(formData.get("title"),
+        formData.get("author"),
+        formData.get("pages"),
+        formData.get("read"));
+    addBookPopUpForm.style.display = "none";
+    displayBooks();
+});
+
 // Book Object Constructor
 class Book {
     constructor(title, author, pages, read) {
@@ -47,7 +58,8 @@ function addBookToLibrary(title, author, pagesCount, readCondition) {
 
 function displayBooks() {
     let libraryContainer = document.querySelector(".library-container");
-    myLibrary.forEach(book => {
+    for (let i = 0; i < myLibrary.length; i++) {
+        let book = myLibrary[i];
         let card = document.createElement("div");
         card.classList.add("card");
 
@@ -68,7 +80,9 @@ function displayBooks() {
         card.appendChild(read);
 
         libraryContainer.appendChild(card);
-    });
+
+
+    }
 }
 
 // temp hard core demo really

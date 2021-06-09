@@ -19,12 +19,12 @@
             </button>
         </nav>
         <div id="overlay">
-            <form action="/app/js/addBook.js" class="form-new-book">
+            <form class="form-new-book" id="new-book-form">
                 <h2>Add Book</h2>
                 <label for="title">Title</label>
                 <input type="text" name="title" id="title">
                 <label for="author">Author</label>
-                <input type="name" id="name">
+                <input type="text" name="author" id="author">
                 <label for="pages">Pages</label>
                 <input type="number" name="pages" id="pages">
                 <!-- TODO: replace read with switch -->
@@ -32,7 +32,7 @@
                 <input type="text" name="read" id="read">
                 <div class="button-container">
                     <input type="button" value="Quit" id="quit-button">
-                    <input type="button" value="Add" id="add-button">
+                    <input type="submit" value="Add" id="add-button">
                 </div>
             </form>
         </div>
