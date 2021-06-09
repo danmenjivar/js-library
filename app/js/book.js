@@ -56,12 +56,24 @@ function addBookToLibrary(title, author, pagesCount, readCondition) {
     myLibrary.push(new Book(title, author, pagesCount, readCondition));
 }
 
-function removeBookFromLibrary() {
-    console.log('Delete attempt');
+function removeBookFromLibrary(e) {
+    let cardIndex = e.target.parentElement.parentElement.getAttribute("data-index");
+    promptDeleteWarning(cardIndex);
+
+
+}
+
+function promptDeleteWarning(indexToDelete) {
+    let title = myLibrary[indexToDelete].title;
+    console.log(`You are attempting to delete ${title}`);
+    myLibrary.splice(indexToDelete, 1);
+    displayBooks();
+
 }
 
 function displayBooks() {
     let libraryContainer = document.querySelector(".library-container");
+    libraryContainer.innerHTML = "";
     for (let i = 0; i < myLibrary.length; i++) {
         let book = myLibrary[i];
         let card = document.createElement("div");
@@ -75,11 +87,12 @@ function displayBooks() {
         remove_icon.textContent = "close";
         remove_icon.classList.add("material-icons");
 
-        remove_icon.addEventListener("click", () => removeBookFromLibrary());
+        remove_icon.addEventListener("click", (e) => removeBookFromLibrary(e));
 
         card_header.appendChild(remove_icon);
 
         let read = document.createElement("p");
+        read.classList.add("title");
         read.textContent = (book.read) ? "Read" : "Not Read";
         card_header.appendChild(read);
 
