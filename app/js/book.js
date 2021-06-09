@@ -2,14 +2,24 @@
 // - style cards
 //  - make so each one gets a unique color
 //  - style fonts (size & family)
-// * Add New Book button
 // * Add a button to each book to remove it from library
 // * Add a read status switch to each book
 // * Integrate local storage
 // * Integrate firebase
+// x Add New Book button
 
 
 let myLibrary = []; // stores books
+
+let addBookPopUpForm = document.querySelector("#overlay");
+
+document.querySelector("#add-book-button").addEventListener("click", () => {
+    addBookPopUpForm.style.display = "block";
+});
+
+document.querySelector("#quit-button").addEventListener("click", () => {
+    addBookPopUpForm.style.display = "none";
+});
 
 // Book Object Constructor
 class Book {
