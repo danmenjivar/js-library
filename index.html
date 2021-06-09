@@ -9,12 +9,24 @@
 
 <body>
     <div class="library-container">
-        <!-- <div class="card">
-            <div class="title"></div>
-            <div class="author"></div>
-            <div class="pages"></div>
-            <div class="read"></div>
-        </div> -->
+        <div id="overlay">
+            <form action="/app/js/addBook.js" class="form-new-book">
+                <h2>Add Book</h2>
+                <label for="title">Title</label>
+                <input type="text" name="title" id="title">
+                <label for="author">Author</label>
+                <input type="name" id="name">
+                <label for="pages">Pages</label>
+                <input type="number" name="pages" id="pages">
+                <!-- TODO: replace read with switch -->
+                <label for="read">Read Status</label>
+                <input type="text" name="read" id="read">
+                <div class="button-container">
+                    <input type="button" value="Quit" id="quit-button">
+                    <input type="button" value="Add" id="add-button">
+                </div>
+            </form>
+        </div>
     </div>
     <script src="/app/js/book.js"></script>
 </body>
