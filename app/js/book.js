@@ -1,5 +1,5 @@
 // TODO
-// * Add a read status switch to each book
+// - Refactor toggle button code/make bigger toggle for add menu
 // - allow to quit by hitting foreground
 // - Add a footer to mark the storing options
 //  - include a button that adds the hardcoded books as a "demo"
@@ -11,6 +11,7 @@
 // x style fonts (size & family)
 // x Add a button to each book to remove it from library
 // x add a "are you sure?" prompt
+// X Add a read status switch to each book
 
 
 let myLibrary = []; // stores books
