@@ -1,24 +1,36 @@
 @import "globals";
 
+$quit_red:#F14E4E;
+$accept_green:#4CAF50;
+$navbar_purple: #6b5b95;
+
 nav {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 40px;
-    background: #6b5b95;
+    background: $navbar_purple;
     
     h1 {
         display: inline-block;
         margin: 0px;
         width: fit-content;
         margin-left: 5px;
+        line-height: 40px;
     }
 
     button {
+        background: none;
+        color: white;
+        border: none;
         margin-top: 5px;
         margin-right: 5px;
         float: right;
+    }
+
+    button:hover{
+        color: $accept_green;
     }
 }
 
@@ -60,17 +72,15 @@ nav {
         }
 
         .material-icons:hover{
-            color: rgba(184, 8, 8, 0.9);
+            color: $quit_red;
             cursor: pointer;
         }
     }
 
     
 }
-
-#overlay {
+.overlay {
     position: fixed;
-    display: none;
     width: 100%;
     height: 100%;
     top: 0;
@@ -81,18 +91,71 @@ nav {
     z-index: 2;
 }
 
+
+#add-overlay {
+    display: none;
+}
+
+#remove-overlay {
+    display: none;
+}
+
+.remove-popup-container {
+    margin-top: 25%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 200px;
+    width: 500px;
+    background: $navbar_purple;
+
+    button {
+        display:inline-block;
+        width: auto;
+        padding:0.3em 1.2em;
+        border:0.16em solid rgba(255,255,255,0);
+        border-radius:2em;
+        box-sizing: border-box;
+        text-decoration:none;
+        font-family:'Roboto',sans-serif;
+        font-weight:300;
+        color:#FFFFFF;
+        text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+        text-align:center;
+        transition: all 0.2s;
+        margin: 0px 10px;
+    }
+
+    #remove-quit-btn {
+        background: $quit_red; 
+    }
+
+    #remove-quit-btn:hover {
+        border-color: rgba(255,255,255,1);
+    }
+
+    #remove-submit-btn {
+        background: $accept_green; 
+    }
+
+    #remove-submit-btn:hover {
+        border-color: rgba(255,255,255,1);
+    }
+}
+
 .form-new-book {
-    background: linear-gradient(200deg, #00d2ff 0%, #3a47d5 100%);;
+    background: $navbar_purple;
     height: 300px;
-    width: 350px;
-    margin-top: 250px;
+    width: 500px;
+    margin-top: 25%;
     margin-left: auto;
     margin-right: auto;
     display: grid;
-    border-radius: 3px;
+    border-radius: 2px;
     grid-template-columns: 30% 70%;
     row-gap: 10px;
-    border: 2px solid white;
 
     h2{
         grid-column: span 2;
@@ -114,8 +177,8 @@ nav {
         margin-top: auto;
         margin-bottom: auto;
         border: none;
-        height: 25px;
-        width: 220px;
+        height: 29px;
+        width: 320px;
         border-radius: 2px;
     }
 
@@ -128,7 +191,7 @@ nav {
     #quit-button {
         display:inline-block;
         width: auto;
-        background: #F14E4E;
+        background: $quit_red;
         padding:0.3em 1.2em;
         border:0.16em solid rgba(255,255,255,0);
         border-radius:2em;
@@ -150,7 +213,7 @@ nav {
     #add-button {
         display:inline-block;
         width: 100px;
-        background: #84F14E;
+        background: $accept_green;
         padding:0.3em 1.2em;
         border:0.16em solid rgba(255,255,255,0);
         border-radius:2em;

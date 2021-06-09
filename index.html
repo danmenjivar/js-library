@@ -17,7 +17,7 @@
             </span>
         </button>
     </nav>
-    <div id="overlay">
+    <div id="add-overlay" class="overlay">
         <form class="form-new-book" id="new-book-form">
             <h2>Add Book</h2>
             <label for="title">Title</label>
@@ -33,6 +33,16 @@
                 <input type="submit" value="Add" id="add-button">
             </div>
         </form>
+    </div>
+    <div id="remove-overlay" class="overlay">
+        <div class="remove-popup-container">
+            <h2>Are you sure?</h2>
+            <p class="title">Some sample text <i>for formatting</i> this thing.</p>
+            <div class="button-container">
+                <button id="remove-quit-btn">No, go back!</button>
+                <button id="remove-submit-btn">Delete forever</button>
+            </div>
+        </div>
     </div>
     <div class="library-container">
     </div>

@@ -1,18 +1,19 @@
 // TODO
-// - style cards
-//  - style fonts (size & family)
-// * Add a button to each book to remove it from library
-//  - add a "are you sure?" prompt
 // * Add a read status switch to each book
 // * Integrate local storage
 // * Integrate firebase
 // x Add New Book button
 // X make so each one gets a unique color
+// x style cards
+// x style fonts (size & family)
+// x Add a button to each book to remove it from library
+// x add a "are you sure?" prompt
 
 
 let myLibrary = []; // stores books
 
-let addBookPopUpForm = document.querySelector("#overlay");
+// EventListeners for Adding Books
+let addBookPopUpForm = document.querySelector("#add-overlay");
 
 document.querySelector("#add-book-button").addEventListener("click", () => {
     addBookPopUpForm.style.display = "block";
@@ -31,6 +32,30 @@ document.querySelector("#new-book-form").addEventListener("submit", (e) => {
         formData.get("read"));
     addBookPopUpForm.style.display = "none";
     displayBooks();
+});
+
+// EventListeners for Deleting Books
+let removeBookPopUp = document.querySelector("#remove-overlay");
+
+function removeBookHandler(e) {
+    let cardIndex = e.target.parentElement.parentElement.getAttribute("data-index");
+    promptDeleteWarning(cardIndex);
+}
+
+function promptDeleteWarning(indexToDelete) {
+    let title = myLibrary[indexToDelete].title;
+    let title_html = removeBookPopUp.querySelector(".title");
+    title_html.innerHTML = `You are attempting to delete <i>${title}</i> for good.`
+    removeBookPopUp.style.display = "block"; // trigger prompt
+    document.querySelector("#remove-submit-btn").addEventListener("click", (e) => {
+        removeBookFromLibrary(indexToDelete);
+        displayBooks();
+        removeBookPopUp.style.display = "none"
+    }, { once: true });
+}
+
+document.querySelector("#remove-quit-btn").addEventListener("click", () => {
+    removeBookPopUp.style.display = "none";
 });
 
 // Book Object Constructor
@@ -57,20 +82,13 @@ function addBookToLibrary(title, author, pagesCount, readCondition) {
     myLibrary.push(new Book(title, author, pagesCount, readCondition));
 }
 
-function removeBookFromLibrary(e) {
-    let cardIndex = e.target.parentElement.parentElement.getAttribute("data-index");
-    promptDeleteWarning(cardIndex);
-
-
-}
-
-function promptDeleteWarning(indexToDelete) {
-    let title = myLibrary[indexToDelete].title;
-    console.log(`You are attempting to delete ${title}`);
+function removeBookFromLibrary(indexToDelete) {
+    console.log(`Before delete ${myLibrary}`)
     myLibrary.splice(indexToDelete, 1);
-    displayBooks();
-
+    console.log(`After delete ${myLibrary}`)
 }
+
+
 
 function displayBooks() {
     let libraryContainer = document.querySelector(".library-container");
@@ -89,7 +107,7 @@ function displayBooks() {
         remove_icon.textContent = "close";
         remove_icon.classList.add("material-icons");
 
-        remove_icon.addEventListener("click", (e) => removeBookFromLibrary(e));
+        remove_icon.addEventListener("click", (e) => removeBookHandler(e));
 
         card_header.appendChild(remove_icon);
 
