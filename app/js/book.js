@@ -56,6 +56,10 @@ function addBookToLibrary(title, author, pagesCount, readCondition) {
     myLibrary.push(new Book(title, author, pagesCount, readCondition));
 }
 
+function removeBookFromLibrary() {
+    console.log('Delete attempt');
+}
+
 function displayBooks() {
     let libraryContainer = document.querySelector(".library-container");
     for (let i = 0; i < myLibrary.length; i++) {
@@ -64,22 +68,34 @@ function displayBooks() {
         card.classList.add("card");
         card.setAttribute("data-index", i);
 
+        let card_header = document.createElement("div");
+        card_header.classList.add("header");
+
+        let remove_icon = document.createElement("span");
+        remove_icon.textContent = "close";
+        remove_icon.classList.add("material-icons");
+
+        remove_icon.addEventListener("click", () => removeBookFromLibrary());
+
+        card_header.appendChild(remove_icon);
+
+        let read = document.createElement("p");
+        read.textContent = (book.read) ? "Read" : "Not Read";
+        card_header.appendChild(read);
+
+        card.appendChild(card_header);
 
         let title = document.createElement("h3");
         title.textContent = book.title;
         card.appendChild(title);
 
         let author = document.createElement("p");
-        author.textContent = `by: ${book.author}`;
+        author.textContent = book.author;
         card.appendChild(author);
 
         let pages = document.createElement("p");
         pages.textContent = `${book.pages} pages`
         card.appendChild(pages)
-
-        let read = document.createElement("p");
-        read.textContent = (book.read) ? "Read" : "Not Read";
-        card.appendChild(read);
 
         libraryContainer.appendChild(card);
     }
