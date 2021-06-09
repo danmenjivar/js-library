@@ -32,7 +32,6 @@ nav {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    background: #2994ab;
     color: white;
     height: 180px;
     width: 300px;
@@ -40,6 +39,10 @@ nav {
     
     *{
         margin: 12px;
+    }
+
+    .pages {
+        font-size: 14px;
     }
 
     .header {
@@ -52,13 +55,12 @@ nav {
         align-items: flex-start;
 
         .material-icons {
-            color: rgb(184, 8, 8);
+            color: white;
             transition: all 0.2s;
         }
 
         .material-icons:hover{
-            font-size: 28px;
-            opacity: .5;
+            color: rgba(184, 8, 8, 0.9);
             cursor: pointer;
         }
     }

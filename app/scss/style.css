@@ -62,7 +62,6 @@ nav button {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  background: #2994ab;
   color: white;
   height: 180px;
   width: 300px;
@@ -71,6 +70,10 @@ nav button {
 
 .card * {
   margin: 12px;
+}
+
+.card .pages {
+  font-size: 14px;
 }
 
 .card .header {
@@ -90,14 +93,13 @@ nav button {
 }
 
 .card .header .material-icons {
-  color: #b80808;
+  color: white;
   -webkit-transition: all 0.2s;
   transition: all 0.2s;
 }
 
 .card .header .material-icons:hover {
-  font-size: 28px;
-  opacity: .5;
+  color: rgba(184, 8, 8, 0.9);
   cursor: pointer;
 }
 

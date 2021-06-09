@@ -1,6 +1,5 @@
 // TODO
 // - style cards
-//  - make so each one gets a unique color
 //  - style fonts (size & family)
 // * Add a button to each book to remove it from library
 //  - add a "are you sure?" prompt
@@ -8,6 +7,7 @@
 // * Integrate local storage
 // * Integrate firebase
 // x Add New Book button
+// X make so each one gets a unique color
 
 
 let myLibrary = []; // stores books
@@ -80,6 +80,7 @@ function displayBooks() {
         let card = document.createElement("div");
         card.classList.add("card");
         card.setAttribute("data-index", i);
+        card.style.backgroundColor = backgroundColorPicker(i);
 
         let card_header = document.createElement("div");
         card_header.classList.add("header");
@@ -108,12 +109,19 @@ function displayBooks() {
         card.appendChild(author);
 
         let pages = document.createElement("p");
+        pages.classList.add("pages");
         pages.textContent = `${book.pages} pages`
         card.appendChild(pages)
 
         libraryContainer.appendChild(card);
     }
 }
+
+function backgroundColorPicker(index) {
+    const colors = ["2994ab", "ab4129", "93ab29", "4129ab"];
+    return `#${colors[index % 4]}`;
+}
+
 
 // temp hard core demo really
 function demo() {
