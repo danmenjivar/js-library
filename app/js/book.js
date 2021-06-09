@@ -62,6 +62,8 @@ function displayBooks() {
         let book = myLibrary[i];
         let card = document.createElement("div");
         card.classList.add("card");
+        card.setAttribute("data-index", i);
+
 
         let title = document.createElement("h3");
         title.textContent = book.title;
@@ -80,8 +82,6 @@ function displayBooks() {
         card.appendChild(read);
 
         libraryContainer.appendChild(card);
-
-
     }
 }
 
