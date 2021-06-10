@@ -18,7 +18,6 @@ body {
   padding: 0px;
   background-color: #202020;
   color: #fff;
-  height: 100vh;
 }
 
 /* The switch - the box around the slider */
@@ -115,6 +114,7 @@ nav button {
 
 nav button:hover {
   color: #4caf50;
+  cursor: pointer;
 }
 
 .library-container {
@@ -246,6 +246,7 @@ nav button:hover {
 
 .remove-popup-container #remove-quit-btn:hover {
   border-color: white;
+  cursor: pointer;
 }
 
 .remove-popup-container #remove-submit-btn {
@@ -253,6 +254,7 @@ nav button:hover {
 }
 
 .remove-popup-container #remove-submit-btn:hover {
+  cursor: pointer;
   border-color: white;
 }
 
@@ -328,6 +330,7 @@ nav button:hover {
 
 .form-new-book #quit-button:hover {
   border-color: white;
+  cursor: pointer;
 }
 
 .form-new-book #add-button {
@@ -351,13 +354,14 @@ nav button:hover {
 }
 
 .form-new-book #add-button:hover {
+  cursor: pointer;
   border-color: white;
 }
 
 footer {
   width: 100%;
   height: 40px;
-  background: brown;
+  background: #955b85;
   position: fixed;
   bottom: 0;
   display: -webkit-box;
@@ -373,13 +377,8 @@ footer .storage-opts {
 }
 
 footer button {
-  margin: 0px 5px;
-}
-
-footer #demo-btn {
   display: inline-block;
   width: auto;
-  background: #4caf50;
   padding: 0.3em 1.2em;
   border: 0.16em solid rgba(255, 255, 255, 0);
   border-radius: 2em;
@@ -396,7 +395,16 @@ footer #demo-btn {
   margin: 0px 10px;
 }
 
-footer #demo-btn:hover {
+footer #demo-btn {
+  background: #4caf50;
+}
+
+footer #clear-btn {
+  background-color: #f14e4e;
+}
+
+footer button:hover {
   border-color: white;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

@@ -5,12 +5,14 @@ let myLibrary = []; // stores books
 // Functions operating directly on library
 function addBookToLibrary(title, author, pagesCount, readCondition) {
   myLibrary.push(new Book(title, author, pagesCount, readCondition));
+  storeLibraryLocally();
 }
 
 function removeBookFromLibrary(indexToDelete) {
   //   console.log(`Before delete ${myLibrary}`);
   myLibrary.splice(indexToDelete, 1);
   //   console.log(`After delete ${myLibrary}`);
+  storeLibraryLocally();
 }
 
 // Book Object Constructor
@@ -193,4 +195,18 @@ function demo() {
 // Event Listener for Demo Button
 document.querySelector("#demo-btn").addEventListener("click", () => demo());
 
-demo();
+// demo();
+
+// Local Storage
+function storeLibraryLocally() {
+  let library = JSON.stringify(myLibrary);
+  localStorage.setItem("myLibrary", library);
+}
+
+function populateStorage() {
+  let library = JSON.parse(localStorage.getItem("myLibrary") || "[]");
+  myLibrary = library;
+  displayBooks();
+}
+
+window.onload = populateStorage();
