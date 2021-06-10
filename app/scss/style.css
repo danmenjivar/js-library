@@ -4,7 +4,9 @@ html {
           box-sizing: border-box;
 }
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
 }
@@ -16,6 +18,7 @@ body {
   padding: 0px;
   background-color: #202020;
   color: #fff;
+  height: 100vh;
 }
 
 /* The switch - the box around the slider */
@@ -42,8 +45,8 @@ body {
   right: 0;
   bottom: 0;
   background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 .slider:before {
@@ -54,17 +57,17 @@ body {
   left: 2px;
   bottom: 2px;
   background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
 }
 
 input:checked ~ .slider {
-  background-color: #2196F3;
+  background-color: #4caf50;
 }
 
 input:focus ~ .slider {
-  -webkit-box-shadow: 0 0 1px #2196F3;
-          box-shadow: 0 0 1px #2196F3;
+  -webkit-box-shadow: 0 0 1px #4caf50;
+          box-shadow: 0 0 1px #4caf50;
 }
 
 input:checked ~ .slider:before {
@@ -88,6 +91,7 @@ nav {
   width: 100%;
   height: 40px;
   background: #6b5b95;
+  z-index: 1;
 }
 
 nav h1 {
@@ -110,7 +114,7 @@ nav button {
 }
 
 nav button:hover {
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 .library-container {
@@ -120,6 +124,7 @@ nav button:hover {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   margin-top: 40px;
+  overflow-y: auto;
 }
 
 .card {
@@ -173,7 +178,7 @@ nav button:hover {
 }
 
 .card .header .material-icons:hover {
-  color: #F14E4E;
+  color: #f14e4e;
   cursor: pointer;
 }
 
@@ -225,9 +230,9 @@ nav button:hover {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-decoration: none;
-  font-family: 'Roboto',sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
-  color: #FFFFFF;
+  color: #ffffff;
   text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
   text-align: center;
   -webkit-transition: all 0.2s;
@@ -236,7 +241,7 @@ nav button:hover {
 }
 
 .remove-popup-container #remove-quit-btn {
-  background: #F14E4E;
+  background: #f14e4e;
 }
 
 .remove-popup-container #remove-quit-btn:hover {
@@ -244,7 +249,7 @@ nav button:hover {
 }
 
 .remove-popup-container #remove-submit-btn {
-  background: #4CAF50;
+  background: #4caf50;
 }
 
 .remove-popup-container #remove-submit-btn:hover {
@@ -304,16 +309,16 @@ nav button:hover {
 .form-new-book #quit-button {
   display: inline-block;
   width: auto;
-  background: #F14E4E;
+  background: #f14e4e;
   padding: 0.3em 1.2em;
   border: 0.16em solid rgba(255, 255, 255, 0);
   border-radius: 2em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-decoration: none;
-  font-family: 'Roboto',sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
-  color: #FFFFFF;
+  color: #ffffff;
   text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
   text-align: center;
   -webkit-transition: all 0.2s;
@@ -328,16 +333,16 @@ nav button:hover {
 .form-new-book #add-button {
   display: inline-block;
   width: 100px;
-  background: #4CAF50;
+  background: #4caf50;
   padding: 0.3em 1.2em;
   border: 0.16em solid rgba(255, 255, 255, 0);
   border-radius: 2em;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-decoration: none;
-  font-family: 'Roboto',sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 300;
-  color: #FFFFFF;
+  color: #ffffff;
   text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
   text-align: center;
   -webkit-transition: all 0.2s;
@@ -346,6 +351,52 @@ nav button:hover {
 }
 
 .form-new-book #add-button:hover {
+  border-color: white;
+}
+
+footer {
+  width: 100%;
+  height: 40px;
+  background: brown;
+  position: fixed;
+  bottom: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+footer .storage-opts {
+  margin-left: auto;
+}
+
+footer button {
+  margin: 0px 5px;
+}
+
+footer #demo-btn {
+  display: inline-block;
+  width: auto;
+  background: #4caf50;
+  padding: 0.3em 1.2em;
+  border: 0.16em solid rgba(255, 255, 255, 0);
+  border-radius: 2em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  color: #ffffff;
+  text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0.35);
+  text-align: center;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+  margin: 0px 10px;
+}
+
+footer #demo-btn:hover {
   border-color: white;
 }
 /*# sourceMappingURL=style.css.map */

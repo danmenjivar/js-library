@@ -1,17 +1,4 @@
-// TODO
-// - Refactor toggle button code/make bigger toggle for add menu
-// - allow to quit by hitting foreground
-// - Add a footer to mark the storing options
-//  - include a button that adds the hardcoded books as a "demo"
-// * Integrate local storage
-// * Integrate firebase
-// x Add New Book button
-// X make so each one gets a unique color
-// x style cards
-// x style fonts (size & family)
-// x Add a button to each book to remove it from library
-// x add a "are you sure?" prompt
-// X Add a read status switch to each book
+/* JS Virtual Library */
 
 let myLibrary = []; // stores books
 
@@ -21,9 +8,9 @@ function addBookToLibrary(title, author, pagesCount, readCondition) {
 }
 
 function removeBookFromLibrary(indexToDelete) {
-  console.log(`Before delete ${myLibrary}`);
+  //   console.log(`Before delete ${myLibrary}`);
   myLibrary.splice(indexToDelete, 1);
-  console.log(`After delete ${myLibrary}`);
+  //   console.log(`After delete ${myLibrary}`);
 }
 
 // Book Object Constructor
@@ -55,6 +42,14 @@ document.querySelector("#add-book-button").addEventListener("click", () => {
 
 document.querySelector("#quit-button").addEventListener("click", () => {
   addBookPopUpForm.style.display = "none";
+});
+
+addBookPopUpForm.addEventListener("click", (e) => {
+  // check if the element that triggered this event (target) is the same
+  // as the element the event listener is attached to (currentTarget)
+  if (e.target === e.currentTarget) {
+    addBookPopUpForm.style.display = "none";
+  }
 });
 
 document.querySelector("#new-book-form").addEventListener("submit", (e) => {
@@ -99,13 +94,16 @@ document.querySelector("#remove-quit-btn").addEventListener("click", () => {
   removeBookPopUp.style.display = "none";
 });
 
+removeBookPopUp.addEventListener("click", (e) => {
+  // check if the element that triggered this event (target) is the same
+  // as the element the event listener is attached to (currentTarget)
+  if (e.target === e.currentTarget) {
+    removeBookPopUp.style.display = "none";
+  }
+});
+
 // Event Listeners for changing read status
 function handleReadStatus(e) {
-  console.log(
-    e.target.parentElement.parentElement.parentElement.getAttribute(
-      "data-index"
-    )
-  );
   let cardIndex =
     e.target.parentElement.parentElement.parentElement.getAttribute(
       "data-index"
@@ -114,9 +112,9 @@ function handleReadStatus(e) {
 }
 
 function toggleReadStatus(index) {
-  console.log(`Before, read = ${myLibrary[index].read}`);
+  //   console.log(`Before, read = ${myLibrary[index].read}`);
   myLibrary[index].read = !myLibrary[index].read;
-  console.log(`After, read = ${myLibrary[index].read}`);
+  //   console.log(`After, read = ${myLibrary[index].read}`);
 }
 
 function displayBooks() {
@@ -182,13 +180,17 @@ function backgroundColorPicker(index) {
   return `#${colors[index % 4]}`;
 }
 
-// hard coded demo
+// handler for Demo Button
 function demo() {
+  myLibrary = []; // empty library to prevent duplicates
   addBookToLibrary("To Kill a Mockingbird", "Harper Lee", 281, true);
   addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald", 180, true);
   addBookToLibrary("Don Quixote", "Miguel de Cervantes", 1072, false);
   addBookToLibrary("The Lord of the Rings", "J.R.R. Tolkien", 1178, false);
   displayBooks();
 }
+
+// Event Listener for Demo Button
+document.querySelector("#demo-btn").addEventListener("click", () => demo());
 
 demo();
