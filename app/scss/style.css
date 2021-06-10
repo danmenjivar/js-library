@@ -372,10 +372,6 @@ footer {
           align-items: center;
 }
 
-footer .storage-opts {
-  margin-left: auto;
-}
-
 footer button {
   display: inline-block;
   width: auto;
@@ -400,6 +396,7 @@ footer #demo-btn {
 }
 
 footer #clear-btn {
+  margin-left: auto;
   background-color: #f14e4e;
 }
 

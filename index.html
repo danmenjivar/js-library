@@ -21,11 +21,11 @@
       <form class="form-new-book" id="new-book-form">
         <h2>Add Book</h2>
         <label for="title">Title</label>
-        <input type="text" name="title" id="title" />
+        <input type="text" name="title" id="title" required />
         <label for="author">Author</label>
-        <input type="text" name="author" id="author" />
+        <input type="text" name="author" id="author" required />
         <label for="pages">Pages</label>
-        <input type="number" name="pages" id="pages" />
+        <input type="number" name="pages" id="pages" min="0" />
         <label for="read">Read Status</label>
         <label class="switch">
           <input type="checkbox" name="read" id="read" />
@@ -50,9 +50,17 @@
     <div class="library-container"></div>
     <footer>
       <button id="demo-btn" class="button">Demo</button>
-      <button id="clear-btn" class="button">Clear</button>
-      <div class="storage-opts"></div>
+      <button id="clear-btn" class="button">Clear All</button>
     </footer>
     <script src="app/js/book.js"></script>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="/__/firebase/8.6.5/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/8.6.5/firebase-analytics.js"></script>
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
   </body>
 </html>

@@ -252,10 +252,6 @@ footer {
   display: flex;
   align-items: center;
 
-  .storage-opts {
-    margin-left: auto;
-  }
-
   button {
     display: inline-block;
     width: auto;
@@ -278,6 +274,7 @@ footer {
   }
 
   #clear-btn {
+    margin-left: auto;
     background-color: $quit_red;
   }
 

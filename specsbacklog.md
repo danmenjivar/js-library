@@ -1,7 +1,7 @@
 # Backlog
 
 _ Integrate local storage
-_ Integrate firebase
+_ Integrate firebase nope, learn that one later
 x Add New Book button
 X make so each one gets a unique color
 x style cards
