@@ -195,7 +195,16 @@ function demo() {
 // Event Listener for Demo Button
 document.querySelector("#demo-btn").addEventListener("click", () => demo());
 
-// demo();
+// handler for clear button
+function clearAll() {
+  localStorage.clear();
+  location.reload();
+}
+
+// Event Listener for Clear Button
+document
+  .querySelector("#clear-btn")
+  .addEventListener("click", () => clearAll());
 
 // Local Storage
 function storeLibraryLocally() {
