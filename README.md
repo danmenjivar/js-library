@@ -2,7 +2,7 @@
 
 ### [Live Demo](https://danmenjivar.github.io/js-library/)
 
-![]
+![screenshot](js-library-screenshot.png)
 
 #### 📝 Description
  
